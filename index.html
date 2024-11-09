@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around</title>
+    <link rel="stylesheet" href="pages/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Around</h1>
+      <p>The U.S.</p>
+    </header>
+    <main>
+      <section class="user">
+        <img
+          src="./images/Avatar.png"
+          alt="Foto del usuario"
+          class="user__user-image"
+        />
+        <div class="user__main-info">
+          <div class="user__main-info_container">
+            <h1 class="user__name">Jaques Cousteau</h1>
+            <img
+              src="./images/EditButton.png"
+              alt="Editar"
+              class="user__edit"
+            />
+          </div>
+
+          <p class="user__topic">Explorador</p>
+        </div>
+        <div class="user__add-button-container">
+          <img
+            src="./images/AddButton.png"
+            alt="AddButton"
+            class="user__add-button"
+          />
+        </div>
+      </section>
+      <section class="edit">
+        <div class="edit__contenedor">
+          <img src="./images/CloseIcon.png" alt="close" class="edit__close" />
+
+          <h2>Editar perfil</h2>
+          <form class="edti__form">
+            <div class="edit__form-contenedor">
+              <input type="text" name="full name" placeholder="Nombre" />
+              <input type="text" name="Dedicacion" placeholder="Acerca de mi" />
+              <button disabled id="edit__button-save" class="edit__button-save">
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="cards">
+        <div class="card">
+          <img src="./images/paisaje1.jpg" alt="Valle de Yosemite" />
+          <div class="card__info">
+            <p class="card__name">Valle de Yosemite</p>
+            <img
+              src="./images/Corazon.svg"
+              alt="Like"
+              class="card__info-like"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/paisaje2.png" alt="Lago Louise" />
+          <div class="card__info">
+            <p class="card__name">Lago Louise</p>
+            <img
+              src="./images/Corazon.svg"
+              alt="Like"
+              class="card__info-like"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/paisaje3.png" alt="Montañas Calvas" />
+          <div class="card__info">
+            <p class="card__name">Montañas Calvas</p>
+            <img
+              src="./images/Corazon.svg"
+              alt="Like"
+              class="card__info-like"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/paisaje4.png" alt="Latemar" />
+          <div class="card__info">
+            <p class="card__name">Latemar</p>
+            <img
+              src="./images/Corazon.svg"
+              alt="Like"
+              class="card__info-like"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/paisaje5.png" alt="Vanois Natonial" />
+          <div class="card__info">
+            <p class="card__name">Vanois Natonial</p>
+            <img
+              src="./images/Corazon.svg"
+              alt="Like"
+              class="card__info-like"
+            />
+          </div>
+        </div>
+        <div class="card">
+          <img src="./images/paisaje6.png" alt="Lago di Braies" />
+          <div class="card__info">
+            <p class="card__name">Lago di Braies</p>
+            <img
+              src="./images/Corazon.svg"
+              alt="Like"
+              class="card__info-like"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
