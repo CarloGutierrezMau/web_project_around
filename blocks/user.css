@@ -100,3 +100,10 @@
     margin: 0 auto;
   }
 }
+
+@media screen and (max-width: 392px) {
+  .user__main-info_container {
+    justify-content: center;
+    height: 140px;
+  }
+}

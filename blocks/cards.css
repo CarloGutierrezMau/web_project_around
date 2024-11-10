@@ -40,10 +40,6 @@
   text-overflow: ellipsis;
 }
 
-.card__info-like {
-  background-color: #000;
-}
-
 .card__info-like:hover {
   opacity: 0.5;
   cursor: pointer;

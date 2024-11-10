@@ -3,7 +3,7 @@ let formEdit = document.querySelector(".edit");
 let closeEdit = formEdit.querySelector(".edit__close");
 let editInputs = formEdit.querySelectorAll("input");
 let editButton = document.getElementById("edit__button-save");
-let cardLike = document.querySelectorAll(".card__info-like");
+const cards = document.querySelectorAll(".card");
 
 function formVisibility() {
   formEdit.classList.toggle("Visibility__form");
@@ -26,14 +26,26 @@ function toggleEditButton() {
   }
 }
 
-// Llama a toggleEditButton al cargar para establecer el estado inicial del botón
 toggleEditButton();
 
-// Añade el event listener correcto para que verifique el contenido en cada cambio
 editInputs.forEach((input) => {
   input.addEventListener("input", toggleEditButton); // Usa el nombre correcto de la función
 });
 
-cardLike.addEventListener("click", function () {
-  cardLike.style.backgroundColor = "black";
+function cardActionLike(event) {
+  let cardLike = event.currentTarget.querySelector(".card__info-like");
+
+  if (cardLike.src.includes("Corazon.svg")) {
+    cardLike.src = "./images/CorazonActive.png";
+    cardLike.style.height = "21px";
+    cardLike.style.paddingTop = "5px";
+  } else {
+    cardLike.src = "./images/Corazon.svg";
+    cardLike.style.height = "";
+    cardLike.style.paddingTop = "";
+  }
+}
+
+cards.forEach((card) => {
+  card.addEventListener("dblclick", cardActionLike);
 });
