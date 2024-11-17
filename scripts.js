@@ -3,7 +3,7 @@ let formEdit = document.querySelector(".edit");
 let closeEdit = formEdit.querySelector(".edit__close");
 let editInputs = formEdit.querySelectorAll("input");
 let editButton = document.getElementById("edit__button-save");
-const cards = document.querySelectorAll(".card");
+let cards = document.querySelectorAll(".card");
 
 function formVisibility() {
   formEdit.classList.toggle("Visibility__form");
@@ -32,20 +32,47 @@ editInputs.forEach((input) => {
   input.addEventListener("input", toggleEditButton); // Usa el nombre correcto de la función
 });
 
-function cardActionLike(event) {
-  let cardLike = event.currentTarget.querySelector(".card__info-like");
+function cardActionLike(imgElement) {
+  const currentSrc = imgElement.getAttribute("src");
+  const newSrc =
+    currentSrc === "./images/Corazon.svg"
+      ? "./images/CorazonActive.png"
+      : "./images/Corazon.svg";
+  imgElement.setAttribute("src", newSrc);
 
-  if (cardLike.src.includes("Corazon.svg")) {
-    cardLike.src = "./images/CorazonActive.png";
-    cardLike.style.height = "21px";
-    cardLike.style.paddingTop = "5px";
+  /* let cardLikeSwitch = event.currentTarget.querySelector(".card__info-like");
+
+  if (cardLikeSwitch.src.includes("Corazon.svg")) {
+    cardLikeSwitch.src = "./images/CorazonActive.png";
+    cardLikeSwitch.style.height = "21px";
+    cardLikeSwitch.style.paddingTop = "5px";
   } else {
-    cardLike.src = "./images/Corazon.svg";
-    cardLike.style.height = "";
-    cardLike.style.paddingTop = "";
+    cardLikeSwitch.src = "./images/Corazon.svg";
+    cardLikeSwitch.style.height = "";
+    cardLikeSwitch.style.paddingTop = "";
+  } */
+  if (newSrc === "./images/CorazonActive.png") {
+    imgElement.style.height = "21px";
+    imgElement.style.paddingTop = "5px";
+  } else {
+    imgElement.style.height = "";
+    imgElement.style.paddingTop = "";
   }
 }
 
 cards.forEach((card) => {
-  card.addEventListener("dblclick", cardActionLike);
+  card.addEventListener("dblclick", () => {
+    const img = card.querySelector(".card__info-like");
+    if (img) {
+      cardActionLike(img);
+    }
+  });
+});
+
+const likeImages = document.querySelectorAll(".card__info-like");
+
+likeImages.forEach((img) => {
+  img.addEventListener("click", () => {
+    cardActionLike(img);
+  });
 });
