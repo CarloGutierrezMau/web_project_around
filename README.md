@@ -1,6 +1,6 @@
 ## Enlaces
 
-[Visita el proyecto aquí](index.html)
+[Visita el proyecto aquí](https://CarloGutierrezMau.github.io/web_project_around/)
 
 # Tripleten web_project_around
 
