@@ -19,17 +19,17 @@ function toggleEditButton() {
 
   if (allFilled) {
     editButton.removeAttribute("disabled");
-    editButton.classList.add("edit__button-save-active"); // Añade la clase activa
+    editButton.classList.add("edit__button-save-active");
   } else {
     editButton.setAttribute("disabled", "true");
-    editButton.classList.remove("edit__button-save-active"); // Elimina la clase activa
+    editButton.classList.remove("edit__button-save-active");
   }
 }
 
 toggleEditButton();
 
 editInputs.forEach((input) => {
-  input.addEventListener("input", toggleEditButton); // Usa el nombre correcto de la función
+  input.addEventListener("input", toggleEditButton);
 });
 
 function cardActionLike(imgElement) {
@@ -40,17 +40,6 @@ function cardActionLike(imgElement) {
       : "./images/Corazon.svg";
   imgElement.setAttribute("src", newSrc);
 
-  /* let cardLikeSwitch = event.currentTarget.querySelector(".card__info-like");
-
-  if (cardLikeSwitch.src.includes("Corazon.svg")) {
-    cardLikeSwitch.src = "./images/CorazonActive.png";
-    cardLikeSwitch.style.height = "21px";
-    cardLikeSwitch.style.paddingTop = "5px";
-  } else {
-    cardLikeSwitch.src = "./images/Corazon.svg";
-    cardLikeSwitch.style.height = "";
-    cardLikeSwitch.style.paddingTop = "";
-  } */
   if (newSrc === "./images/CorazonActive.png") {
     imgElement.style.height = "21px";
     imgElement.style.paddingTop = "5px";

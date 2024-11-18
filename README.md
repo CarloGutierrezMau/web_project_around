@@ -1,3 +1,7 @@
+## Enlaces
+
+[Visita el proyecto aquí](index.html)
+
 # Tripleten web_project_around
 
 ## Una página del diseño de una red social
