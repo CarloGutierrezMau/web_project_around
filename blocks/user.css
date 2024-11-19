@@ -1,4 +1,9 @@
 .user {
+  color: #fff;
+  font-family: Inter;
+}
+
+.user_container {
   max-width: 880px;
   width: 100%;
   margin: 0 auto 50px;
