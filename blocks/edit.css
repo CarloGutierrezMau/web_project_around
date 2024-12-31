@@ -1,4 +1,4 @@
-.edit__container {
+.edit {
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -7,11 +7,11 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.Visibility__form {
+.visibility__form {
   display: block;
 }
 
-.edit__contenedor {
+.edit__div {
   margin: auto;
   margin-top: 160px;
   height: 360px;
@@ -24,14 +24,14 @@
   padding: 34px;
   position: relative;
 }
-.edit__contenedor img {
+.close {
   position: absolute;
   right: -42px;
   top: -42px;
   cursor: pointer;
 }
 
-.edit__contenedor h2 {
+.edit__div h2 {
   font-weight: 900;
   margin-bottom: 54px;
 }
@@ -58,11 +58,21 @@
 }
 
 .edit__button-save-active {
-  border: none;
   background-color: #000;
+  border: none;
   color: #fff;
 }
 .edit__button-save-active:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .edit__div {
+    width: 90%;
+  }
+  .close {
+    right: 15px;
+    top: -60px;
+  }
 }

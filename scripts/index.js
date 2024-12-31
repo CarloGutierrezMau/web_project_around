@@ -1,12 +1,12 @@
-let userEdit = document.querySelector(".user__edit");
+let userEdit = document.querySelector(".edit-button");
 let formEdit = document.querySelector(".edit");
-let closeEdit = formEdit.querySelector(".edit__close");
+let closeEdit = formEdit.querySelector(".close");
 let editInputs = formEdit.querySelectorAll("input");
 let editButton = document.getElementById("edit__button-save");
 let cards = document.querySelectorAll(".card");
 
 function formVisibility() {
-  formEdit.classList.toggle("Visibility__form");
+  formEdit.classList.toggle("visibility__form");
 }
 
 userEdit.addEventListener("click", formVisibility);
