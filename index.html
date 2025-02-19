@@ -51,16 +51,48 @@
           <h2>Editar perfil</h2>
           <form class="edit__form">
             <div class="edit__form-contenedor">
-              <input type="text" name="full name" placeholder="Nombre" />
-              <input type="text" name="Dedicacion" placeholder="Acerca de mi" />
-              <button disabled id="edit__button-save" class="edit__button-save">
+              <input
+                type="text"
+                name="full name"
+                placeholder="Nombre"
+                class="edit__input edit__input-nombre"
+              />
+              <input
+                type="text"
+                name="Dedicacion"
+                placeholder="Acerca de mi"
+                class="edit__input edit__input-acerca"
+              />
+              <div id="edit__button-save" class="edit__button-save">
                 Guardar
-              </button>
+              </div>
             </div>
           </form>
         </div>
       </section>
-      <section class="cards">
+      <section class="add">
+        <div class="add__div">
+          <img src="./images/CloseIcon.png" alt="close" class="add__close" />
+
+          <h2>Añadir carta</h2>
+          <div class="add__contenedor">
+            <input
+              class="add__input add__input-titulo"
+              type="text"
+              name="titulo"
+              placeholder="Titulo"
+            />
+            <input
+              class="add__input add__input-imagen"
+              type="text"
+              name="imagen"
+              placeholder="direccion (url o ../raiz) de tu imagen"
+            />
+            <div id="add__button-save" class="add__button-save">Guardar</div>
+          </div>
+        </div>
+      </section>
+      <section id="cards">
         <div class="card">
           <img src="./images/paisaje1.jpg" alt="Valle de Yosemite" />
           <div class="card__info">
@@ -129,6 +161,15 @@
         </div>
       </section>
     </main>
+    <template id="card-template">
+      <div class="card">
+        <img src="" alt="Valle de Yosemite" class="card__image" />
+        <div class="card__info">
+          <p class="card__name">Valle de Yosemite</p>
+          <img src="./images/Corazon.svg" alt="Like" class="card__info-like" />
+        </div>
+      </div>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
