@@ -55,7 +55,6 @@
   color: #c9c9c9;
   border: 1px solid #c9c9c9;
   margin-top: 20px;
-  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +64,6 @@
   background-color: #000;
   border: none;
   color: #fff;
-  pointer-events: auto;
 }
 .add__button-save-active:hover {
   opacity: 0.8;

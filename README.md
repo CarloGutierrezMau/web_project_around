@@ -6,19 +6,13 @@
 
 ## Una página del diseño de una red social
 
-Con esta página ejemplifico lo que podria ser una red social basica, las partes extras (secciones de información o listas de diferentes cosas) pueden ser agregadas con facilidad con cuadriculas
+En esta página se pueden hacer cambios en los nombres del usuario, su descripsion principal y añadir nuevas cartas, incluso interactuar con cada una de las cartas
+Es una página que se adapta a cualquier tamaño de pantalla. O deja de crecer en cierto punto o no se amontona el contenido
 
 ## ¿Que es lo que hace la página?
 
-funcion 1: Editar perfil, aun no esta habil pero ya estan los preparativos, solo falta materializar los cambios que se realicen en el uso de la página
-funcion 2: Dar like a las cards con doble click en cualquier parte de la card o con un click en el corazon
+funcion 1: Editar perfil: presionas el lapiz y cambias lo que quieras que la página cambie
 
-## ¿Que me gustaria poder hacer con esta página?
+funcion 2: Dar like a las cards con doble click en cualquier parte de la card o con un click en el corazon o dblclick en la carta
 
-En algun punto podre usar bases de datos y generar cambios a travez del contenido de estas, pero esto requiere de conosimientos avanzados, eso es justo lo que hace util a para tantas personas el uso de una red social funcional.
-
-Ademas quisiera que los cambios realizados se mantubieran, por el momento todos los cambios echos en el uso de la página regresan a 0 al cerrar y abrir o tan solo reiniciar (incluso al perder la conexión)
-
-Quisiera que se pudieran añadir cards con el llenado de ciertos requerimientos
-
-En pocas palabras, quisiera guardar todo en una base de datos
+funcion 3: Añadir una carta nueva: Asegurate que la url o direccion raiz (./direccion/raiz.jpg) sea accesible

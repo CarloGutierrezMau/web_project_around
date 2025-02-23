@@ -54,18 +54,19 @@
               <input
                 type="text"
                 name="full name"
-                placeholder="Nombre"
+                placeholder=""
                 class="edit__input edit__input-nombre"
               />
               <input
                 type="text"
                 name="Dedicacion"
-                placeholder="Acerca de mi"
+                placeholder=""
                 class="edit__input edit__input-acerca"
               />
-              <div id="edit__button-save" class="edit__button-save">
+              <button disabled id="edit__button-save" class="edit__button-save">
                 Guardar
-              </div>
+              </button>
+              <!-- Cambiar estos buttons por div para que la página no se restaure-->
             </div>
           </form>
         </div>
@@ -88,7 +89,10 @@
               name="imagen"
               placeholder="direccion (url o ../raiz) de tu imagen"
             />
-            <div id="add__button-save" class="add__button-save">Guardar</div>
+            <button disabled id="add__button-save" class="add__button-save">
+              Guardar
+            </button>
+            <!-- Cambiar estos buttons por div para que la página no se restaure-->
           </div>
         </div>
       </section>

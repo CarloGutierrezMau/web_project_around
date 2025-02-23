@@ -4,19 +4,22 @@ const topic = document.querySelector(".user").querySelector(".topic");
 const userEdit = document.querySelector(".edit-button");
 const addCard = document.querySelector(".add-button");
 
-const formEdit = document.querySelector(".edit");
-const formAdd = document.querySelector(".add");
+const popUpEdit = document.querySelector(".edit");
+const popUpAdd = document.querySelector(".add");
 
-const closeEdit = formEdit.querySelector(".close");
-const closeAdd = formAdd.querySelector(".add__close");
+const formEdit = popUpEdit.querySelector(".edit__form");
+const formAdd = popUpAdd.querySelector(".add__form");
 
-const editInputs = formEdit.querySelectorAll(".edit__input");
-const editInputNombre = formEdit.querySelector(".edit__input-nombre");
-const editInputAcerca = formEdit.querySelector(".edit__input-acerca");
+const closeEdit = popUpEdit.querySelector(".close");
+const closeAdd = popUpAdd.querySelector(".add__close");
 
-const addInputs = formAdd.querySelectorAll(".add__input");
-const addInputTitulo = formAdd.querySelector(".add__input-titulo");
-const addInputImagen = formAdd.querySelector(".add__input-imagen");
+const editInputs = popUpEdit.querySelectorAll(".edit__input");
+const editInputNombre = popUpEdit.querySelector(".edit__input-nombre");
+const editInputAcerca = popUpEdit.querySelector(".edit__input-acerca");
+
+const addInputs = popUpAdd.querySelectorAll(".add__input");
+const addInputTitulo = popUpAdd.querySelector(".add__input-titulo");
+const addInputImagen = popUpAdd.querySelector(".add__input-imagen");
 
 const editButton = document.getElementById("edit__button-save");
 const addButton = document.getElementById("add__button-save");
@@ -48,11 +51,15 @@ addInputs.forEach((input) => {
 });
 
 function formEditVisibility() {
-  formEdit.classList.toggle("visibility__form");
+  popUpEdit.classList.toggle("visibility__form");
+  editInputNombre.placeholder = Name.textContent;
+  editInputNombre.value = Name.textContent;
+  editInputAcerca.placeholder = topic.textContent;
+  editInputAcerca.value = topic.textContent;
 }
 
 function formAddVisibility() {
-  formAdd.classList.toggle("add__visibility__form");
+  popUpAdd.classList.toggle("add__visibility__form");
 }
 
 function toggleEditButton() {
@@ -114,6 +121,9 @@ function addCardAction() {
 
   formAddVisibility();
   new addCards(titulo, imagen);
+
+  addInputTitulo.value = "";
+  addInputImagen.value = "";
 }
 
 userEdit.addEventListener("click", formEditVisibility);
@@ -139,21 +149,6 @@ cardsContainer.addEventListener("dblclick", (event) => {
   }
 });
 
-addButton.addEventListener("click", addCardAction);
-
-addInputTitulo.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    addInputImagen.focus();
-  }
-});
-
-addInputImagen.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    addCardAction();
-  }
-});
-
 editButton.addEventListener("click", renovarValoresusuario);
 
 editInputNombre.addEventListener("keydown", (event) => {
@@ -166,5 +161,20 @@ editInputNombre.addEventListener("keydown", (event) => {
 editInputAcerca.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     renovarValoresusuario();
+  }
+});
+
+addButton.addEventListener("click", addCardAction);
+
+addInputTitulo.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    addInputImagen.focus();
+  }
+});
+
+addInputImagen.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    addCardAction();
   }
 });
