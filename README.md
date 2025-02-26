@@ -11,8 +11,36 @@ Es una página que se adapta a cualquier tamaño de pantalla. O deja de crecer e
 
 ## ¿Que es lo que hace la página?
 
-funcion 1: Editar perfil: presionas el lapiz y cambias lo que quieras que la página cambie
+las funciones vendran con el uso de las tecnologias implementadas de esta manera:
 
-funcion 2: Dar like a las cards con doble click en cualquier parte de la card o con un click en el corazon o dblclick en la carta
+- tecnologia 1:
+- tecnologia 2:
+- etc, etc.
 
-funcion 3: Añadir una carta nueva: Asegurate que la url o direccion raiz (./direccion/raiz.jpg) sea accesible
+funcion 1: Editar perfil: En un icono del lapiz encuentras un formulario que te llevara a cambiar el nombre y dedicacion del usuario
+
+funcion 2: Añadir una carta nueva: Das click en el signo de "+" y llenas el formulario como corresponde, esto hara que se añada una carta con nombre e imagen segun tu elección
+
+- Hay toda un constructor de creacion de las imagenes donde se toma el contenido de un template y se clona, tiene clases predefinidas y el contenido es variable
+- Al añadir una carta se almacena en un arreglo
+- Al arreglo se le itera con un forEach y se crean las cartas segun corresponda al contenido almacenado en el arreglo
+- Al añadir una carta se eliminan todas las cartas vaciando el contenedor, esto para volver a crearlas segun lo almacenado en el arreglo de cartas
+
+NOTA sobre los formularios
+
+- Se deshabilitan si no tienen contenido
+
+![Miralo en accion](./images/Adicion.gif)
+
+funcion 3: Dar like a las cards con doble click en cualquier parte de la card o con un click en el corazon de la carta
+
+- Se añadio un event.tarjet al contenedor de cartas y al hacer click en un corazon se confirma que el suceso y se le cambia el src de un corazon blanco a negro, o viseversa
+
+funcion 4: Abrir las imagenes que se muestran en las cartas
+
+- Para esto use event.tarjet para acceder a la imagen especifica con cierta class.
+- Se añaden div e img con .createElement, segun sea necesario.
+- Al cover negro semitransparente que se ve entre la imagen / texto y todo el contenido original de la página se le añade una addEventListener que elimina lo que se acaba de crear.
+- la funcion de eliminar lo creado se le asigno a su vez a la cruz de cerrar.
+
+![Mira lo que hacen](./images/Accion.gif)

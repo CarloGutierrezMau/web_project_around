@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -49,7 +53,7 @@
           <img src="./images/CloseIcon.png" alt="close" class="close" />
 
           <h2>Editar perfil</h2>
-          <form class="edit__form">
+          <form class="edit__form" type="submit">
             <div class="edit__form-contenedor">
               <input
                 type="text"
@@ -76,98 +80,41 @@
           <img src="./images/CloseIcon.png" alt="close" class="add__close" />
 
           <h2>Añadir carta</h2>
-          <div class="add__contenedor">
-            <input
-              class="add__input add__input-titulo"
-              type="text"
-              name="titulo"
-              placeholder="Titulo"
-            />
-            <input
-              class="add__input add__input-imagen"
-              type="text"
-              name="imagen"
-              placeholder="direccion (url o ../raiz) de tu imagen"
-            />
-            <button disabled id="add__button-save" class="add__button-save">
-              Guardar
-            </button>
-            <!-- Cambiar estos buttons por div para que la página no se restaure-->
-          </div>
+          <form class="add__form">
+            <div class="add__contenedor">
+              <input
+                class="add__input add__input-titulo"
+                type="text"
+                name="titulo"
+                placeholder="Titulo"
+              />
+              <input
+                class="add__input add__input-imagen"
+                type="text"
+                name="imagen"
+                placeholder="URL de tu imagen"
+              />
+              <button
+                disabled
+                id="add__button-save"
+                class="add__button-save"
+                value="Enviar"
+                type="submit"
+              >
+                Guardar
+              </button>
+              <!-- Cambiar estos buttons por div para que la página no se restaure-->
+            </div>
+          </form>
         </div>
       </section>
-      <section id="cards">
-        <div class="card">
-          <img src="./images/paisaje1.jpg" alt="Valle de Yosemite" />
-          <div class="card__info">
-            <p class="card__name">Valle de Yosemite</p>
-            <img
-              src="./images/Corazon.svg"
-              alt="Like"
-              class="card__info-like"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/paisaje2.png" alt="Lago Louise" />
-          <div class="card__info">
-            <p class="card__name">Lago Louise</p>
-            <img
-              src="./images/Corazon.svg"
-              alt="Like"
-              class="card__info-like"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/paisaje3.png" alt="Montañas Calvas" />
-          <div class="card__info">
-            <p class="card__name">Montañas Calvas</p>
-            <img
-              src="./images/Corazon.svg"
-              alt="Like"
-              class="card__info-like"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/paisaje4.png" alt="Latemar" />
-          <div class="card__info">
-            <p class="card__name">Latemar</p>
-            <img
-              src="./images/Corazon.svg"
-              alt="Like"
-              class="card__info-like"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/paisaje5.png" alt="Vanois Natonial" />
-          <div class="card__info">
-            <p class="card__name">Vanois Natonial</p>
-            <img
-              src="./images/Corazon.svg"
-              alt="Like"
-              class="card__info-like"
-            />
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/paisaje6.png" alt="Lago di Braies" />
-          <div class="card__info">
-            <p class="card__name">Lago di Braies</p>
-            <img
-              src="./images/Corazon.svg"
-              alt="Like"
-              class="card__info-like"
-            />
-          </div>
-        </div>
-      </section>
+      <section id="cards"></section>
     </main>
     <template id="card-template">
-      <div class="card">
+      <div class="card" data-id="">
         <img src="" alt="Valle de Yosemite" class="card__image" />
+        <i class="fa-solid fa-trash icono-basura"></i>
+
         <div class="card__info">
           <p class="card__name">Valle de Yosemite</p>
           <img src="./images/Corazon.svg" alt="Like" class="card__info-like" />

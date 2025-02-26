@@ -29,26 +29,68 @@ const cards = document.querySelectorAll(".card");
 
 const cardTemplate = document.getElementById("card-template").content;
 
-class addCards {
-  constructor(titulo, imagen) {
-    this.element = cardTemplate.cloneNode(true);
+const storageCards = [
+  {
+    id: 1,
+    name: "Eduard Delputte",
+    link: "https://images.unsplash.com/photo-1740137660661-274c804a891d?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 2,
+    name: "Ciudad del cabo",
+    link: "https://images.unsplash.com/photo-1740021546242-8b718a3e0459?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 3,
+    name: "Pierpaolo Pellegrino",
+    link: "https://images.unsplash.com/photo-1739775225955-ba1ba496d28d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 4,
+    name: "Nebulosa",
+    link: "https://images.unsplash.com/photo-1740094714220-1b0c181be46d?q=80&w=2083&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 5,
+    name: "Parque Nacional de Yosemite",
+    link: "https://images.unsplash.com/photo-1739993655680-4b7050ed2896?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 6,
+    name: "Isla Guadalupe",
+    link: "https://images.unsplash.com/photo-1740175919285-451699588f1b?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+class AddCards {
+  constructor(titulo, imagen, id) {
+    this.element = cardTemplate.cloneNode(true).firstElementChild;
     const cardName = this.element.querySelector(".card__name");
     const cardImage = this.element.querySelector(".card__image");
+    const eliminador = this.element.querySelector(".icono-basura");
 
     cardName.textContent = titulo;
     cardImage.src = imagen;
 
-    cardsContainer.appendChild(this.element);
+    eliminador.addEventListener("click", () => {
+      this.removeCard();
+      storageCards.splice(id, 1);
+      cardsContainer.innerHTML = "";
+      recorrerArreglo(storageCards, (card, index) => {
+        new AddCards(card.name, card.link, index);
+      });
+    });
+
+    this.id = id;
+    this.element.dataset.id = this.id;
+    this.element.dataset.tipo = "elemento-especial";
+
+    cardsContainer.prepend(this.element);
+  }
+  removeCard() {
+    this.element.remove();
   }
 }
-
-editInputs.forEach((input) => {
-  input.addEventListener("input", toggleEditButton);
-});
-
-addInputs.forEach((input) => {
-  input.addEventListener("input", toggleAddButton);
-});
 
 function formEditVisibility() {
   popUpEdit.classList.toggle("visibility__form");
@@ -110,21 +152,47 @@ function cardActionLike(imgElement) {
 function renovarValoresusuario() {
   const nuevoNombreValor = editInputNombre.value.trim();
   const nuevoAcercaValor = editInputAcerca.value.trim();
-  topic.textContent = nuevoAcercaValor;
-  Name.textContent = nuevoNombreValor;
-  formEditVisibility();
+  if (nuevoNombreValor && nuevoAcercaValor) {
+    topic.textContent = nuevoAcercaValor;
+    Name.textContent = nuevoNombreValor;
+    formEditVisibility();
+  }
 }
 
 function addCardAction() {
   const titulo = addInputTitulo.value.trim();
   const imagen = addInputImagen.value.trim();
 
-  formAddVisibility();
-  new addCards(titulo, imagen);
+  if (titulo && imagen) {
+    formAddVisibility();
+    /* new AddCards(titulo, imagen); */
+    storageCards.push({ name: titulo, link: imagen });
+    cardsContainer.innerHTML = "";
 
-  addInputTitulo.value = "";
-  addInputImagen.value = "";
+    recorrerArreglo(storageCards, (card, index) => {
+      new AddCards(card.name, card.link, index);
+    });
+
+    addInputTitulo.value = "";
+    addInputImagen.value = "";
+  }
 }
+
+function recorrerArreglo(array, callback) {
+  array.forEach((item, index) => callback(item, index));
+}
+
+recorrerArreglo(storageCards, (card, index) => {
+  new AddCards(card.name, card.link, index);
+});
+
+editInputs.forEach((input) => {
+  input.addEventListener("input", toggleEditButton);
+});
+
+addInputs.forEach((input) => {
+  input.addEventListener("input", toggleAddButton);
+});
 
 userEdit.addEventListener("click", formEditVisibility);
 closeEdit.addEventListener("click", formEditVisibility);
@@ -132,49 +200,59 @@ closeEdit.addEventListener("click", formEditVisibility);
 addCard.addEventListener("click", formAddVisibility);
 closeAdd.addEventListener("click", formAddVisibility);
 
+document
+  .querySelector(".add__form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el envío tradicional
+    addCardAction();
+  });
+
+document
+  .querySelector(".edit__form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el envío tradicional
+    renovarValoresusuario();
+  });
+
 cardsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("card__info-like")) {
     cardActionLike(event.target);
   }
 });
-cardsContainer.addEventListener("dblclick", (event) => {
-  const card = event.target.closest(".card");
 
-  if (card) {
-    const likeIcon = card.querySelector(".card__info-like");
+cardsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("card__image")) {
+    const contenedorImagen = document.createElement("div");
+    contenedorImagen.classList.add("contenedor__imagen-grande");
 
-    if (likeIcon) {
-      cardActionLike(likeIcon);
-    }
-  }
-});
+    const backgroundContenedorGranImagen = document.createElement("div");
+    backgroundContenedorGranImagen.classList.add("cover__imagen-grande");
 
-editButton.addEventListener("click", renovarValoresusuario);
+    const nuevaImagen = document.createElement("img");
+    nuevaImagen.src = event.target.src;
+    nuevaImagen.classList.add("imagen-grande");
 
-editInputNombre.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    editInputAcerca.focus();
-  }
-});
+    const textoNuevaImagen = document.createElement("div");
+    textoNuevaImagen.textContent =
+      event.target.parentNode.querySelector(".card__name").textContent;
+    textoNuevaImagen.classList.add("texto-nueva-imagen");
 
-editInputAcerca.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    renovarValoresusuario();
-  }
-});
+    const cerrador = document.createElement("img");
+    cerrador.src = "../images/CloseIcon.png";
+    cerrador.alt = "Cerrar";
+    cerrador.classList.add("cerrar__imagen-grande");
 
-addButton.addEventListener("click", addCardAction);
+    document.body.appendChild(contenedorImagen);
+    contenedorImagen.appendChild(backgroundContenedorGranImagen);
+    contenedorImagen.appendChild(nuevaImagen);
+    contenedorImagen.appendChild(textoNuevaImagen);
+    contenedorImagen.appendChild(cerrador);
 
-addInputTitulo.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    addInputImagen.focus();
-  }
-});
-
-addInputImagen.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    addCardAction();
+    backgroundContenedorGranImagen.addEventListener("click", () => {
+      contenedorImagen.remove();
+    });
+    cerrador.addEventListener("click", () => {
+      contenedorImagen.remove();
+    });
   }
 });
