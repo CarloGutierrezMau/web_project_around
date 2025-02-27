@@ -14,17 +14,25 @@
 
 .main-info {
   margin-left: 30px;
+  max-width: 85%;
+  width: 100%;
 }
 
 .main-info__container {
   display: flex;
   flex-wrap: nowrap;
   height: 78px;
+  max-width: 80%;
 }
 
 .name {
+  width: auto;
   font-size: 42px;
   margin-top: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 50px;
 }
 
 .edit-button {
@@ -39,7 +47,12 @@
 }
 
 .topic {
+  width: 100%;
   font-size: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 20px;
 }
 
 .add-button {
@@ -51,6 +64,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  min-width: 100px;
 }
 
 .add-button-plus {

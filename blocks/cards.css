@@ -1,9 +1,9 @@
 #cards {
   display: grid;
-  grid-template-columns: repeat(3, 33.33%);
+  grid-template-columns: repeat(3, 30%);
   max-width: 880px;
   width: 100%;
-  grid-gap: 17px;
+  grid-gap: 5%;
   grid-row-gap: 20px;
   margin: auto;
 }
@@ -21,6 +21,7 @@
 .card > img {
   width: 100%;
   height: 280px;
+  object-fit: cover;
 }
 
 .contenedor__imagen-grande {

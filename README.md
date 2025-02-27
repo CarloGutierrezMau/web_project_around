@@ -9,6 +9,11 @@
 En esta página se pueden hacer cambios en los nombres del usuario, su descripsion principal y añadir nuevas cartas, incluso interactuar con cada una de las cartas
 Es una página que se adapta a cualquier tamaño de pantalla. O deja de crecer en cierto punto o no se amontona el contenido
 
+## Responsive
+
+Al encojerse el tamaño de la página se cambia el grid de 3 columnas a 1
+La página se centra a pesar del tamaño de la pantalla a menos que afecte la visibilidad de los elementos
+
 ## ¿Que es lo que hace la página?
 
 las funciones vendran con el uso de las tecnologias implementadas de esta manera:

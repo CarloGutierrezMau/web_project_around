@@ -31,32 +31,26 @@ const cardTemplate = document.getElementById("card-template").content;
 
 const storageCards = [
   {
-    id: 1,
     name: "Eduard Delputte",
     link: "https://images.unsplash.com/photo-1740137660661-274c804a891d?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 2,
     name: "Ciudad del cabo",
     link: "https://images.unsplash.com/photo-1740021546242-8b718a3e0459?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 3,
     name: "Pierpaolo Pellegrino",
     link: "https://images.unsplash.com/photo-1739775225955-ba1ba496d28d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 4,
     name: "Nebulosa",
     link: "https://images.unsplash.com/photo-1740094714220-1b0c181be46d?q=80&w=2083&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 5,
     name: "Parque Nacional de Yosemite",
     link: "https://images.unsplash.com/photo-1739993655680-4b7050ed2896?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    id: 6,
     name: "Isla Guadalupe",
     link: "https://images.unsplash.com/photo-1740175919285-451699588f1b?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -80,10 +74,6 @@ class AddCards {
         new AddCards(card.name, card.link, index);
       });
     });
-
-    this.id = id;
-    this.element.dataset.id = this.id;
-    this.element.dataset.tipo = "elemento-especial";
 
     cardsContainer.prepend(this.element);
   }
@@ -179,7 +169,7 @@ function addCardAction() {
 }
 
 function recorrerArreglo(array, callback) {
-  array.forEach((item, index) => callback(item, index));
+  array.forEach(callback /* (item, index) => callback(item, index) */);
 }
 
 recorrerArreglo(storageCards, (card, index) => {
