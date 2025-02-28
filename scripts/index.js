@@ -28,6 +28,9 @@ const cardsContainer = document.getElementById("cards");
 const cards = document.querySelectorAll(".card");
 
 const cardTemplate = document.getElementById("card-template").content;
+const GrandImageTemplate = document.getElementById(
+  "grand-image__template"
+).content;
 
 const storageCards = [
   {
@@ -67,19 +70,54 @@ class AddCards {
     cardImage.src = imagen;
 
     eliminador.addEventListener("click", () => {
-      this.removeCard();
-      storageCards.splice(id, 1);
-      cardsContainer.innerHTML = "";
-      recorrerArreglo(storageCards, (card, index) => {
-        new AddCards(card.name, card.link, index);
-      });
+      this.eliminarCartas(id);
+      this.renderCards();
+    });
+
+    cardImage.addEventListener("click", () => {
+      this.createGrandImage(titulo, imagen);
     });
 
     cardsContainer.prepend(this.element);
   }
-  removeCard() {
-    this.element.remove();
+
+  createGrandImage(titleimage, image) {
+    this.grandImageContainer =
+      GrandImageTemplate.cloneNode(true).firstElementChild;
+    const titleImage = this.grandImageContainer.querySelector(
+      ".grand-image__title"
+    );
+    const grandimage = this.grandImageContainer.querySelector(".grand-image");
+    const cerrar = this.grandImageContainer.querySelector(
+      ".grand-image__cerrar"
+    );
+    const cover = this.grandImageContainer.querySelector(".grand-image__cover");
+
+    titleImage.textContent = titleimage;
+    grandimage.src = image;
+
+    cerrar.addEventListener("click", () => {
+      this.grandImageContainer.remove();
+    });
+    cover.addEventListener("click", () => {
+      this.grandImageContainer.remove();
+    });
+
+    document.body.appendChild(this.grandImageContainer);
   }
+
+  renderCards() {
+    cardsContainer.innerHTML = "";
+    recorrerArreglo(storageCards, (card) => {
+      new AddCards(card.name, card.link);
+    });
+  }
+
+  eliminarCartas(id) {
+    storageCards.splice(id, 1);
+  }
+
+  likingCard() {}
 }
 
 function formEditVisibility() {
@@ -207,42 +245,5 @@ document
 cardsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("card__info-like")) {
     cardActionLike(event.target);
-  }
-});
-
-cardsContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("card__image")) {
-    const contenedorImagen = document.createElement("div");
-    contenedorImagen.classList.add("contenedor__imagen-grande");
-
-    const backgroundContenedorGranImagen = document.createElement("div");
-    backgroundContenedorGranImagen.classList.add("cover__imagen-grande");
-
-    const nuevaImagen = document.createElement("img");
-    nuevaImagen.src = event.target.src;
-    nuevaImagen.classList.add("imagen-grande");
-
-    const textoNuevaImagen = document.createElement("div");
-    textoNuevaImagen.textContent =
-      event.target.parentNode.querySelector(".card__name").textContent;
-    textoNuevaImagen.classList.add("texto-nueva-imagen");
-
-    const cerrador = document.createElement("img");
-    cerrador.src = "../images/CloseIcon.png";
-    cerrador.alt = "Cerrar";
-    cerrador.classList.add("cerrar__imagen-grande");
-
-    document.body.appendChild(contenedorImagen);
-    contenedorImagen.appendChild(backgroundContenedorGranImagen);
-    contenedorImagen.appendChild(nuevaImagen);
-    contenedorImagen.appendChild(textoNuevaImagen);
-    contenedorImagen.appendChild(cerrador);
-
-    backgroundContenedorGranImagen.addEventListener("click", () => {
-      contenedorImagen.remove();
-    });
-    cerrador.addEventListener("click", () => {
-      contenedorImagen.remove();
-    });
   }
 });

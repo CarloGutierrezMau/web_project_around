@@ -21,8 +21,9 @@
 .main-info__container {
   display: flex;
   flex-wrap: nowrap;
-  height: 78px;
-  max-width: 80%;
+  height: auto;
+  max-width: 100%;
+  width: 80%;
 }
 
 .name {
@@ -92,23 +93,26 @@
     margin: auto;
   }
 
-  .main-info__container {
-    justify-content: center;
+  .main-info {
+    margin: 0 auto 20px auto;
   }
 
-  .main-info {
-    margin-left: 0;
-    margin-bottom: 20px;
+  .main-info__container {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .name {
     text-align: center;
     justify-content: center;
+    max-height: 100px;
+    height: auto;
+    white-space: wrap;
   }
   .edit-button {
     height: 24px;
     width: 24px;
-    margin: 35px 25px 0px 0px;
+    margin: auto;
   }
 
   .add-button {
@@ -120,9 +124,10 @@
 @media screen and (max-width: 392px) {
   .main-info__container {
     justify-content: center;
-    height: 140px;
+    height: 190px;
+    width: 100%;
   }
   .edit-button {
-    margin: 85px 25px 0px 0px;
+    margin: auto;
   }
 }
