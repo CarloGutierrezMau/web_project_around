@@ -36,7 +36,7 @@
   height: 50px;
 }
 
-.edit-button {
+.edit-popup-button {
   height: 24px;
   width: 24px;
   margin: 35px 0 0 18px;
@@ -56,15 +56,17 @@
   height: 20px;
 }
 
-.add-button {
+.add-popup-button {
   height: 50px;
   width: 150px;
-  margin: auto 0 auto auto;
   border: solid #fff 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  right: 0;
+  margin-top: 30px;
   min-width: 100px;
 }
 
@@ -75,12 +77,6 @@
 
 .add-button:hover {
   opacity: 0.8;
-}
-
-@media screen and (max-width: 925px) {
-  .add-button {
-    margin-right: 20px;
-  }
 }
 
 @media screen and (max-width: 760px) {
@@ -100,6 +96,7 @@
   .main-info__container {
     flex-wrap: wrap;
     justify-content: center;
+    margin: auto;
   }
 
   .name {
@@ -109,13 +106,13 @@
     height: auto;
     white-space: wrap;
   }
-  .edit-button {
+  .edit-popup-button {
     height: 24px;
     width: 24px;
-    margin: auto;
+    margin: 20px;
   }
 
-  .add-button {
+  .add-popup-button {
     max-width: 280px;
     margin: 0 auto;
   }
@@ -126,8 +123,5 @@
     justify-content: center;
     height: 190px;
     width: 100%;
-  }
-  .edit-button {
-    margin: auto;
   }
 }

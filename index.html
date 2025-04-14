@@ -34,13 +34,13 @@
             <img
               src="./images/EditButton.png"
               alt="Editar"
-              class="edit-button"
+              class="edit-popup-button"
             />
           </div>
 
           <p class="topic">Explorador</p>
         </div>
-        <div class="add-button">
+        <div class="add-popup-button">
           <img
             src="./images/AddButton.png"
             alt="AddButton"
@@ -48,62 +48,78 @@
           />
         </div>
       </section>
-      <section class="edit">
-        <div class="edit__div">
+      <section class="edit-popup">
+        <div class="edit-popup__cover"></div>
+        <div class="edit-popup__div">
           <img src="./images/CloseIcon.png" alt="close" class="close" />
 
           <h2>Editar perfil</h2>
-          <form class="edit__form">
-            <div class="edit__form-contenedor">
+          <form class="edit-popup__form">
+            <div class="edit-popup__form-contenedor">
               <input
                 type="text"
                 name="full name"
                 placeholder=""
-                class="edit__input edit__input-nombre"
+                class="edit-popup__input edit-popup__input_nombre"
+                minlength="2"
+                maxlength="40"
+                required
               />
+              <span class="edit-popup__span edit-popup__span_nombre"></span>
               <input
                 type="text"
-                name="Dedicacion"
                 placeholder=""
-                class="edit__input edit__input-acerca"
+                class="edit-popup__input edit-popup__input_acerca"
+                minlength="2"
+                maxlength="200"
+                required
               />
-              <button disabled id="edit__button-save" class="edit__button-save">
+              <span class="edit-popup__span edit-popup__span_acerca"></span>
+
+              <button
+                disabled
+                id="edit-popup__button-save"
+                class="edit-popup__button-save"
+              >
                 Guardar
               </button>
-              <!-- Cambiar estos buttons por div para que la página no se restaure-->
             </div>
           </form>
         </div>
       </section>
-      <section class="add">
-        <div class="add__div">
-          <img src="./images/CloseIcon.png" alt="close" class="add__close" />
+      <section class="add-popup">
+        <div class="add-popup__cover"></div>
+        <div class="add-popup__div">
+          <img
+            src="./images/CloseIcon.png"
+            alt="close"
+            class="add-popup__close"
+          />
 
           <h2>Añadir carta</h2>
-          <form class="add__form">
-            <div class="add__contenedor">
+          <form class="add-popup__form">
+            <div class="add-popup__contenedor">
               <input
-                class="add__input add__input-titulo"
+                class="add-popup__input add-popup__input_titulo"
                 type="text"
                 name="titulo"
                 placeholder="Titulo"
+                minlength="2"
+                maxlength="30"
+                required
               />
+              <span class="add-popup__span add-popup__span_titulo"></span>
+
               <input
-                class="add__input add__input-imagen"
-                type="text"
+                class="add-popup__input add-popup__input_imagen"
+                type="url"
                 name="imagen"
                 placeholder="URL de tu imagen"
+                required
               />
-              <button
-                disabled
-                id="add__button-save"
-                class="add__button-save"
-                value="Enviar"
-                type="submit"
-              >
-                Guardar
-              </button>
-              <!-- Cambiar estos buttons por div para que la página no se restaure-->
+              <span class="add-popup__span add-popup__span_imagen"></span>
+
+              <button disabled class="add-popup__button-save">Guardar</button>
             </div>
           </form>
         </div>
@@ -111,12 +127,12 @@
       <section id="cards"></section>
     </main>
     <template id="card-template">
-      <div class="card" data-id="">
-        <img src="" alt="Valle de Yosemite" class="card__image" />
+      <div class="card">
+        <img src="" alt="" class="card__image" />
         <i class="fa-solid fa-trash icono-basura"></i>
 
         <div class="card__info">
-          <p class="card__name">Valle de Yosemite</p>
+          <p class="card__name"></p>
           <img src="./images/Corazon.svg" alt="Like" class="card__info-like" />
         </div>
       </div>
@@ -134,5 +150,6 @@
       </div>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
