@@ -222,28 +222,6 @@ recorrerArreglo(storageCards, (card, index) => {
   new AddCards(card.name, card.link, index, card.like);
 });
 
-editInputs.forEach((input) => {
-  input.addEventListener("input", () => {
-    buttonToggle(
-      validity(editInputNombre, editSpanNombre),
-      validity(editInputAcerca, editSpanAcerca),
-      editButton,
-      "edit"
-    );
-  });
-});
-
-addInputs.forEach((input) => {
-  input.addEventListener("input", () => {
-    buttonToggle(
-      validity(addInputTitulo, addSpanTitulo),
-      validity(addInputImagen, addSpanImagen),
-      addButton,
-      "add"
-    );
-  });
-});
-
 userEdit.addEventListener("click", formEditVisibility);
 closeEdit.addEventListener("click", formEditVisibility);
 editCover.addEventListener("click", formEditVisibility);
