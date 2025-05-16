@@ -129,6 +129,14 @@ class AddCards {
     cover.addEventListener("click", () => {
       this.grandImageContainer.remove();
     });
+    cover.addEventListener("click", () => {
+      this.grandImageContainer.remove();
+    });
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        this.grandImageContainer.remove();
+      }
+    });
 
     document.body.appendChild(this.grandImageContainer);
   }
@@ -170,8 +178,6 @@ function formEditVisibility() {
   editInputNombre.value = Name.textContent;
   editInputAcerca.placeholder = topic.textContent;
   editInputAcerca.value = topic.textContent;
-  validity(editInputNombre, editSpanNombre);
-  validity(editInputAcerca, editSpanAcerca);
 }
 
 function formAddVisibility() {
@@ -181,11 +187,9 @@ function formAddVisibility() {
 function renovarValoresusuario() {
   const nuevoNombreValor = editInputNombre.value.trim();
   const nuevoAcercaValor = editInputAcerca.value.trim();
-  if (validity) {
-    topic.textContent = nuevoAcercaValor;
-    Name.textContent = nuevoNombreValor;
-    formEditVisibility();
-  }
+  topic.textContent = nuevoAcercaValor;
+  Name.textContent = nuevoNombreValor;
+  formEditVisibility();
 }
 
 function addCardAction(title, image) {
@@ -213,6 +217,14 @@ function recorrerArreglo(array, callback) {
 function popUpEsc(popUp, toggle, event, section) {
   if (event.key === "Escape") {
     if (popUp.classList.contains(`${section}-popup__visibility__form`)) {
+      toggle();
+    }
+  }
+}
+
+function popUpEsc(popUp, toggle, event) {
+  if (event.key === "Escape") {
+    if (popUp.classList.contains(``)) {
       toggle();
     }
   }

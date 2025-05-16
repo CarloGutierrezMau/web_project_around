@@ -20,7 +20,7 @@ const ValidationElements = {
 };
 
 const enableValidation = (input, span, typeError) => {
-  if (!input.enableValidation.valid) {
+  if (!input.validity.valid) {
     span.innerText = input.validationMessage;
     input.classList.add(typeError);
     return false;
@@ -45,6 +45,7 @@ editInputNombre.addEventListener("input", () => {
   enableValidation(
     editInputNombre,
     editSpanNombre,
+    ValidationElements.edit.submitButtonSelector,
     ValidationElements.edit.inputErrorClass
   );
 });
